@@ -30,13 +30,23 @@ app.use(express.json());
 // });
 
 app.get("/", (req, res) => {
- 
-   axios.get('https://maps.googleapis.com/maps/api/place/textsearch/json?query=restaurants%20in%20Sydney&key=<your-google-api-key>').then(resp=>{
-    console.log(resp.data);
-  })
-  axios.get('https://api.yelp.com/v3/businesses/search?location=chicago',{headers:{Authorization:'Bearer <your-yelp-api-key>'}}).then(resp=>{console.log(resp.data)})
- 
-
+  axios
+    .get(
+      "https://maps.googleapis.com/maps/api/place/textsearch/json?query=sappori%20trattoria%20chicago&key=<google_key>"
+    )
+    .then((resp) => {
+      console.log(resp.data);
+    });
+  axios
+    .get("https://api.yelp.com/v3/businesses/search?location=chicago", {
+      headers: {
+        Authorization:
+          "Bearer <yelp-key>",
+      },
+    })
+    .then((resp) => {
+      console.log(resp.data);
+    });
 });
 
 db.once("open", () => {
