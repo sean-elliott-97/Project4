@@ -30,23 +30,13 @@ app.use(express.json());
 // });
 
 app.get("/", (req, res) => {
-  let data = async ()=> {
-    axios.get("https://api.yelp.com/v3/businesses/search?location=chicago", {
-      headers:
-        "Bearer <Your_yelp_key>",
-    })
-      .then(
-        (response = () => {
-          console.log(response);
-        })
-      )
-      .catch(
-        (error = () => {
-          console.log(error);
-        })
-      );
-  };
-  data();
+ 
+   axios.get('https://maps.googleapis.com/maps/api/place/textsearch/json?query=restaurants%20in%20Sydney&key=<your-google-api-key>').then(resp=>{
+    console.log(resp.data);
+  })
+  axios.get('https://api.yelp.com/v3/businesses/search?location=chicago',{headers:{Authorization:'Bearer <your-yelp-api-key>'}}).then(resp=>{console.log(resp.data)})
+ 
+
 });
 
 db.once("open", () => {
