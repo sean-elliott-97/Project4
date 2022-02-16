@@ -31,10 +31,10 @@ app.use(express.json());
 
 app.get("/", (req, res) => {
  
-   axios.get('https://maps.googleapis.com/maps/api/place/textsearch/json?query=restaurants%20in%20Sydney&key=<your-google-api-key>').then(resp=>{
+   axios.get('https://maps.googleapis.com/maps/api/place/textsearch/json?query=museums%20in%20miami&key=AIzaSyA4UV-PRLN_1hU2hWySJReJcPyrFoLmJxM').then(resp=>{
     console.log(resp.data);
   })
-  axios.get('https://api.yelp.com/v3/businesses/search?location=chicago',{headers:{Authorization:'Bearer <your-yelp-api-key>'}}).then(resp=>{console.log(resp.data)})
+  // axios.get('https://api.yelp.com/v3/businesses/search?location=chicago',{headers:{Authorization:'Bearer 3uA7R3RB3mexIuCty_Pwmg-2icCC-w8gjQ-2FRKA0F1RcfpQ84_5Juzdm72UdHBOqbTLXuH19RcuoaRiSbdhMRDbbHkkl8pH10j5B_oDEHMsupqJ94h2uPEZZwYLYnYx'}}).then(resp=>{console.log(resp.data)})
  
 
 });
